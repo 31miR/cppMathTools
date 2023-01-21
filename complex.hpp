@@ -29,8 +29,8 @@ public:
         im_ = I;
     }
     //mozda jos koji konstruktor lololol?
-    T real() const {return re_;}
-    T imaginary() const {return im_;}
+    T& real() {return re_;}
+    T& imaginary() {return im_;}
     ComplexNumber& operator=(const ComplexNumber& o){
         re_ = o.re_;
         im_ = o.im_;
@@ -60,7 +60,7 @@ public:
     }
 };
 template<typename T>
-std::ostream& operator<<(std::ostream& strm, const ComplexNumber<T>& o){
+std::ostream& operator<<(std::ostream& strm, ComplexNumber<T>& o){
     if(o.real() != 0) strm << o.real();
     if(o.imaginary() > 0) strm << "+";
     if(o.imaginary() != 0) strm << o.imaginary() << "*i";
